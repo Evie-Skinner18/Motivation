@@ -15,5 +15,10 @@
     <PackageReference Include="Quotes" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Motivation.Data\Motivation.Data.csproj" />
+    <ProjectReference Include="..\Motivation.Services\Motivation.Services.csproj" />
+  </ItemGroup>
+
 
 </Project>

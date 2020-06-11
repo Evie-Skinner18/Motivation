@@ -18,3 +18,23 @@ This is a helpful web application that shows the user a motivational message of 
 - Git
 - Bash
 - Make
+
+
+## How to Run the App
+1. Open a command line and run
+    ```
+        git clone https://github.com/Evie-Skinner18/Motivation.git
+    ```
+2. Open your localhost instance of Microsoft SQL Server and create a database called 'Motivation'. Use default for the owner.
+3. Create a .env file in the root directory of the Motivation project:
+    ```
+        touch .env
+    ```
+4. Open the .env file and add the following to it:
+    ```
+        DEV_CONNECTION_STRING="Server=localhost;Database=Motivation;Trusted_Connection=True;"
+    ```
+5. Still from the root directory, run the following command:
+    ```
+        make migrations  how do you apply migrations? Add this to makefile
+    ```
