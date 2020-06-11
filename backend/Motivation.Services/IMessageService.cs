@@ -5,8 +5,10 @@ namespace Motivation.Services
 {
     public interface IMessageService
     {
-        public IEnumerable<Message> GetAllMessages();
+        IEnumerable<Message> GetAllMessages();
 
-        public Message GetMessageById(int id);
+        Message GetMessageById(int id);
+
+        Message GetMessageByDayOfWeek(string day);
     }
 }

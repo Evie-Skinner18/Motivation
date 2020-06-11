@@ -31,5 +31,12 @@ namespace Motivation.Api.Controllers
             var message = _messageService.GetMessageById(id);
             return Ok(message);
         }
+
+        [HttpGet("/api/messages/today")]
+        public IActionResult GetTodaysMessage(string day)
+        {
+            var todaysMessage = _messageService.GetMessageByDayOfWeek(day);
+            return Ok(todaysMessage);
+        }
     }
 }

@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Writers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Motivation.Data\Motivation.Data.csproj" />
   </ItemGroup>
 

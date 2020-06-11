@@ -2,6 +2,7 @@
 using Motivation.Data;
 using Motivation.Data.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Motivation.Services.Readers
 {
@@ -27,5 +28,6 @@ namespace Motivation.Services.Readers
                 .Find(id);
             return messageWithGivenId;
         }
+
     }
 }
