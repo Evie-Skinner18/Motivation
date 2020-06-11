@@ -34,7 +34,7 @@ This is a helpful web application that shows the user a motivational message of 
     ```
         DEV_CONNECTION_STRING="Server=localhost;Database=Motivation;Trusted_Connection=True;"
     ```
-5. Still from the root directory, run the following command:
+5. Still from the root directory, run the following command to update your new database with all the available migrations:
     ```
-        make migrations  how do you apply migrations? Add this to makefile
+        make db
     ```
