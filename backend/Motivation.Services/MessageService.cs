@@ -17,7 +17,14 @@ namespace Motivation.Services
         public IEnumerable<Message> GetAllMessages()
         {
             var allMessages = _messageReader.GetAllMessagesFromDb();
-            return allMessages;
+            if (allMessages == null)
+            {
+                throw new Exception("The reader has returned NULL");
+            }
+            else
+            {
+                return allMessages;
+            }
         }
 
         public Message GetMessageById(int id)

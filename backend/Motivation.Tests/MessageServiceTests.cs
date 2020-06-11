@@ -4,6 +4,7 @@ using Motivation.Services.Readers;
 using Motivation.Data.Models;
 using System.Collections.Generic;
 using Motivation.Services;
+using System;
 
 namespace Motivation.Tests
 {
@@ -54,21 +55,28 @@ namespace Motivation.Tests
             Assert.That(allMessages, Is.EqualTo(_messages));
         }
 
-
-        /*
-         *  public IEnumerable<Message> GetAllMessages()
+        [Test]
+        public void CanGetAllMessages_ShouldReturnAnExceptionWhenTheValueReturnedFromTheReaderIsNull()
         {
-            throw new NotImplementedException();
+            List<Message> invalidResult = null;
+            _messageReader.Setup(r => r.GetAllMessagesFromDb()).Returns(invalidResult);
+
+            var messageService = new MessageService(_messageReader.Object);
+
+            var exception = Assert.Throws<Exception>(() => messageService.GetAllMessages());
+            Assert.That(exception.Message, Is.EqualTo("The reader has returned NULL"));
         }
 
-        public Message GetMessageById(int id)
+        [Test]
+        public void CanGetMessageById_ShouldReturnTheMessageCorrespondingToTheGivenId()
         {
-            throw new NotImplementedException();
-        }
-         * 
-         * 
-         * 
-         * 
-         */
+            _messageReader.Setup(r => r.GetMessageFromDbById(1)).Returns(_messages[0]);
+
+            var messageService = new MessageService(_messageReader.Object);
+            var helloMessage = messageService.GetMessageById(1);
+            var expectedMessage = _messages[0];
+
+            Assert.That(helloMessage, Is.EqualTo(expectedMessage));
+        }        
     }
 }
