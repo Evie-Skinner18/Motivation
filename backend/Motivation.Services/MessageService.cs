@@ -1,4 +1,5 @@
 ﻿using Motivation.Data.Models;
+using Motivation.Services.Readers;
 using System;
 using System.Collections.Generic;
 
@@ -6,14 +7,23 @@ namespace Motivation.Services
 {
     public class MessageService : IMessageService
     {
+        private IMessageReader _messageReader;
+
+        public MessageService(IMessageReader messageReader)
+        {
+            _messageReader = messageReader;
+        }
+
         public IEnumerable<Message> GetAllMessages()
         {
-            throw new NotImplementedException();
+            var allMessages = _messageReader.GetAllMessagesFromDb();
+            return allMessages;
         }
 
         public Message GetMessageById(int id)
         {
-            throw new NotImplementedException();
+            var messageWithGivenId = _messageReader.GetMessageFromDbById(id);
+            return messageWithGivenId;
         }
     }
 }

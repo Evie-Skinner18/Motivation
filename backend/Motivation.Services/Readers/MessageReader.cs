@@ -7,7 +7,7 @@ namespace Motivation.Services.Readers
 {
     public class MessageReader : IMessageReader
     {
-        public DbContext _dbContext { get; set; }
+        public MotivationDbContext _dbContext { get; set; }
 
         public MessageReader(MotivationDbContext dbContext)
         {
@@ -22,7 +22,10 @@ namespace Motivation.Services.Readers
 
         public Message GetMessageFromDbById(int id)
         {
-            throw new System.NotImplementedException();
+            var messageWithGivenId = _dbContext
+                .Messages
+                .Find(id);
+            return messageWithGivenId;
         }
     }
 }
