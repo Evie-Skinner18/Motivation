@@ -9,6 +9,6 @@ namespace Motivation.Services
 
         Message GetMessageById(int id);
 
-        Message GetMessageByDayOfWeek(string day);
+        Message GetMessageByDayOfWeek(int day);
     }
 }

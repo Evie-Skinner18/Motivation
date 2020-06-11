@@ -23,17 +23,10 @@ namespace Motivation.Api.Controllers
         {
             var allMessages = _messageService.GetAllMessages();
             return Ok(allMessages);
-        }
+        }        
 
-        [HttpGet("/api/messages/{id}")]
-        public IActionResult GetMessageById(int id)
-        {
-            var message = _messageService.GetMessageById(id);
-            return Ok(message);
-        }
-
-        [HttpGet("/api/messages/today")]
-        public IActionResult GetTodaysMessage(string day)
+        [HttpGet("/api/messages/{day}")]
+        public IActionResult GetTodaysMessage(int day)
         {
             var todaysMessage = _messageService.GetMessageByDayOfWeek(day);
             return Ok(todaysMessage);

@@ -34,23 +34,13 @@ namespace Motivation.Services
             return messageWithGivenId;
         }
 
-        public Message GetMessageByDayOfWeek(string day)
+        public Message GetMessageByDayOfWeek(int day)
         {
             var allMessages = _messageReader.GetAllMessagesFromDb().ToList();
-            day = day.ToLower();
+            day = day - 1;
 
-            switch (day)
-            {
-                case "monday": return allMessages[0];
-                case "tuesday": return allMessages[1];
-                case "wednesday": return allMessages[2];
-                case "thursday": return allMessages[3];
-                case "friday": return allMessages[4];
-                case "saturday": return allMessages[5];
-                case "sunday":return allMessages[6];
-                default:
-                   return null;
-            };
+            var todaysMessage = allMessages[day];
+            return todaysMessage;
         }
     }
 }
