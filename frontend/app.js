@@ -1,12 +1,22 @@
 "use strict";
 
+
 var todaysDate = new Date();
 var today = todaysDate.getDay();
 
+var headers = new Headers();
+headers.append('Origin','http://localhost:5500');
+
+var motivationUrl = `https://localhost:5001/api/messages/${today}`;
+console.log(motivationUrl);
+
 // fetch handlebars template and .compile it
 // fetch API data and .json it
-fetch(`https://localhost:5001/api/messages/${today}`).then(function (jsonData) {
-  return jsonData.json();
+fetch(`${motivationUrl}`, { headers: headers }).then(function (jsonData) {
+    jsonData = jsonData.json();
+    var responseBody = jsonData.body;
+    console.log(responseBody);
+  return responseBody;
 }).then(function (motivationApiData) {
   fetch('template.hbs').then(function (handlebarsTemplateData) {
     return handlebarsTemplateData.text();

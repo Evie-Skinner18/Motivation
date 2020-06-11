@@ -79,10 +79,5 @@ namespace Motivation.Tests
             Assert.That(helloMessage, Is.EqualTo(expectedMessage));
         } 
         
-        [Test]
-        public void CanGetMessageForCorrectDay_ShouldReturnSundaysMessage()
-        {
-
-        }
     }
 }

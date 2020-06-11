@@ -28,7 +28,15 @@ namespace Motivation.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            services.AddCors(options => options
+            .AddPolicy(name: "MotivationPolicy", 
+            builder => builder
+            .WithOrigins("http://localhost:5500")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials())
+            );
+
             services.AddControllers();
 
             // set up dotenv to grab the environment vars
@@ -58,23 +66,21 @@ namespace Motivation.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthorization();
 
+            // only allow certain clients to consume this service
+            app.UseCors("MotivationPolicy");
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers()
+                .RequireCors("MotivationPolicy");
             });
 
-            // only allow a client running on localhost:8080 to consume this service
-            app.UseCors(builder => builder
-                .WithOrigins("https://localhost:8080")
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-           );
+
+            app.UseHttpsRedirection();
         }
     }
 }
