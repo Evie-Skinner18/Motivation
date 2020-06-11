@@ -43,7 +43,7 @@ This is a cheerful web application that shows the user a motivational message of
 7. Back in the command line, run
 	```
 	dotnet test
-```
+	```
 8. Run the command
    ```
 	make api
