@@ -1,6 +1,6 @@
 # Motivation
 
-This is a helpful web application that shows the user a motivational message of the day.
+This is a cheerful web application that shows the user a motivational message of the day.
 
 ## Tools and Technologies Used
 - .Net Core 3.1
@@ -15,6 +15,7 @@ This is a helpful web application that shows the user a motivational message of 
 
 - NUnit
 - Moq
+- Postman
 - Git
 - Bash
 - Make

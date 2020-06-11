@@ -68,6 +68,13 @@ namespace Motivation.Api
             {
                 endpoints.MapControllers();
             });
+
+            // only allow a client running on localhost:8080 to consume this service
+            app.UseCors(builder => builder
+                .WithOrigins("https://localhost:8080")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+           );
         }
     }
 }

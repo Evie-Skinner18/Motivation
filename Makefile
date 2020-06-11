@@ -4,7 +4,7 @@ PROJECT_NAME ?= Motivation
 
 
 # Names that we will attach to sequences of commands. We will be able to run them by using these names, e.g 'make migrations'
-.PHONY = migrations db api
+.PHONY = migrations db api thankyou
 
 
 

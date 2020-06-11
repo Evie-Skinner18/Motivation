@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Motivation.Services;
 
 namespace Motivation.Api.Controllers
 {
@@ -13,26 +10,26 @@ namespace Motivation.Api.Controllers
     {       
 
         private readonly ILogger<MessagesController> _logger;
+        private readonly IMessageService _messageService;
 
-        public MessagesController(ILogger<MessagesController> logger)
+        public MessagesController(ILogger<MessagesController> logger, IMessageService messageService)
         {
             _logger = logger;
+            _messageService = messageService;
         }        
 
         [HttpGet("/api/messages")]
         public IActionResult GetAllMessages()
         {
-            //var allBooks = _bookService.GetAllBooks();
-            return Ok("HELLO");
+            var allMessages = _messageService.GetAllMessages();
+            return Ok(allMessages);
         }
 
         [HttpGet("/api/messages/{id}")]
         public IActionResult GetMessageById(int id)
         {
-            //var allBooks = _bookService.GetAllBooks();
-            return Ok($"I am message {id}");
+            var message = _messageService.GetMessageById(id);
+            return Ok(message);
         }
-
-
     }
 }
