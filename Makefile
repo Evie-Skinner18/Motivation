@@ -17,7 +17,7 @@ db:
 
 # Commands required to run the API project from the root directory
 api:
-	dotnet build && dotnet run --project ./backend/Motivation.Api/Motivation.Api.csproj
+	cd ./backend && dotnet build && dotnet run --project ./Motivation.Api/Motivation.Api.csproj
 
 thankyou:
 	echo 'Thank you for this opportunity!'
