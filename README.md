@@ -40,12 +40,16 @@ This is a cheerful web application that shows the user a motivational message of
         make db
     ```
 6. Seed the database by running the 'SeedMessagesTable.sql' file in the setup directory.
-7. Back in the command line, run the command
+7. Back in the command line, run
+	```
+	dotnet test
+```
+8. Run the command
    ```
 	make api
    ```
    to run the API.
-8. Open the frontend project in Visual Studio Code, and run index.html via LiveServer, which will open up index.html at http://localhost:5500.
+9. Open the frontend project in Visual Studio Code, and run index.html via LiveServer, which will open up index.html at http://localhost:5500.
 
 ## Known Issues
 - I have not managed to make the front end consume the C# API properly. Currently it can make a request, but it receives an undefined response.

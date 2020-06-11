@@ -12,7 +12,5 @@ namespace Motivation.Data.Models
         public string Author { get; set; }
 
         public string ImageUrl { get; set; }
-
-        //public IEnumerable<string> LanguagesAvailable { get; set; }
     }
 }
