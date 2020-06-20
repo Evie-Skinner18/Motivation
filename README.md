@@ -42,7 +42,7 @@ This is a cheerful web application that shows the user a motivational message of
 6. Seed the database by running the 'SeedMessagesTable.sql' file in the setup directory.
 7. Back in the command line, run
 	```
-	dotnet test
+	make tests
 	```
 8. Run the command
    ```
