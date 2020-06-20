@@ -4,7 +4,7 @@ PROJECT_NAME ?= Motivation
 
 
 # Names that we will attach to sequences of commands. We will be able to run them by using these names, e.g 'make migrations'
-.PHONY = migrations db api thankyou
+.PHONY = migrations db api tests
 
 
 
@@ -19,5 +19,8 @@ db:
 api:
 	cd ./backend && dotnet build && dotnet run --project ./Motivation.Api/Motivation.Api.csproj
 
-thankyou:
-	echo 'Thank you for this opportunity!'
+
+
+# Testing
+tests:
+	cd ./backend/ && dotnet test
